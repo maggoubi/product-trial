@@ -6,7 +6,7 @@
 - Gestion des produits avec opérations CRUD (création, lecture, mise à jour, suppression).
 - Gestion du panier d'achat (ajout, mise à jour, suppression, vidage).
 - Gestion de la liste de souhaits.
-- Sécurité avec contrôle d'accès basé sur les rôles.
+- Sécurité avec contrôle d'accès.
 
 ## Structure du projet
 
