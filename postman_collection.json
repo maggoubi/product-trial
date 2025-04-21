@@ -1,0 +1,329 @@
+{
+  "info": {
+    "name": "API Symfony - Produits, Panier, Wishlist",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Account",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/account",
+          "protocol": "http",
+          "host": [
+            "127.0.0.1:8000"
+          ],
+          "path": [
+            "account"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"test@example.com\",\n  \"firstname\": \"Example\",\n  \"password\": \"password\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Token",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/token",
+          "protocol": "http",
+          "host": [
+            "127.0.0.1:8000"
+          ],
+          "path": [
+            "token"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"password\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Produits - Tous",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/products",
+          "protocol": "http",
+          "host": [
+            "127.0.0.1:8000"
+          ],
+          "path": [
+            "products"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Produits - D\u00e9tail",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/products/1",
+          "protocol": "http",
+          "host": [
+            "127.0.0.1:8000"
+          ],
+          "path": [
+            "products",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Produits - Cr\u00e9er (admin)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/products",
+          "protocol": "http",
+          "host": [
+            "127.0.0.1:8000"
+          ],
+          "path": [
+            "products"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"code\": \"P001\",\n  \"name\": \"Produit test\",\n  \"description\": \"Un produit ajout\\u00e9 pour test\",\n  \"image\": \"image.jpg\",\n  \"category\": \"test\",\n  \"price\": 20,\n  \"quantity\": 1000,\n  \"internalReference\": \"INR001\" \n}"
+        }
+      }
+    },
+    {
+      "name": "Produits - Modifier (admin)",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/products/1",
+          "protocol": "http",
+          "host": [
+            "127.0.0.1:8000"
+          ],
+          "path": [
+            "products",
+            "1"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+		  "raw": "{\n  \"code\": \"P001\",\n  \"name\": \"Produit modifi\\u00e9\",\n  \"description\": \"Un produit ajout\\u00e9 pour test\",\n  \"image\": \"image.jpg\",\n  \"category\": \"test\",\n  \"price\": 20,\n  \"quantity\": 1000,\n  \"internalReference\": \"INR001\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Produits - Supprimer (admin)",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/products/1",
+          "protocol": "http",
+          "host": [
+            "127.0.0.1:8000"
+          ],
+          "path": [
+            "products",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Panier - Voir",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/cart",
+          "protocol": "http",
+          "host": [
+            "127.0.0.1:8000"
+          ],
+          "path": [
+            "cart"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Panier - Ajouter",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/cart",
+          "protocol": "http",
+          "host": [
+            "127.0.0.1:8000"
+          ],
+          "path": [
+            "cart"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"productId\": 1,\n  \"quantity\": 1\n}"
+        }
+      }
+    },
+    {
+      "name": "Panier - Supprimer",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/cart/1",
+          "protocol": "http",
+          "host": [
+            "127.0.0.1:8000"
+          ],
+          "path": [
+            "cart",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Wishlist - Voir",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/wishlist",
+          "protocol": "http",
+          "host": [
+            "127.0.0.1:8000"
+          ],
+          "path": [
+            "wishlist"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Wishlist - Ajouter",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/wishlist",
+          "protocol": "http",
+          "host": [
+            "127.0.0.1:8000"
+          ],
+          "path": [
+            "wishlist"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"productId\": 1\n}"
+        }
+      }
+    },
+    {
+      "name": "Wishlist - Supprimer",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/wishlist/1",
+          "protocol": "http",
+          "host": [
+            "127.0.0.1:8000"
+          ],
+          "path": [
+            "wishlist",
+            "1"
+          ]
+        }
+      }
+    }
+  ]
+}

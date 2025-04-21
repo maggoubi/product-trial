@@ -1,0 +1,15 @@
+# Symfony / PHP
+/vendor/
+.env.local
+.env.test
+.env.*.local
+.phpunit.result.cache
+/var/
+/node_modules/
+
+# Cache & logs
+/var/cache/
+/var/log/
+
+# JWT / OAuth keys
+/config/jwt/*.pem
